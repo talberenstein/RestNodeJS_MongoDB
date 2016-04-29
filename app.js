@@ -5,10 +5,7 @@ var express         = require("express"),
     mongoose        = require('mongoose');
 
 // Connection to DB
-mongoose.connect('mongodb://localhost/events', function(err, res) {
-  if(err) throw err;
-  console.log('Connected to Database');
-});
+mongoose.connect('mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/');
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
