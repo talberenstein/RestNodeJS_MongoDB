@@ -1,5 +1,9 @@
 {
  "name": "node-api-rest-example",
+     "scripts": {
+      "start": "node app.js"
+      },
+ "main": "app.js",
  "version": "2.0.0",
  "dependencies": {
  "mongoose": "~3.6.11",
