@@ -4,8 +4,12 @@ var express         = require("express"),
     methodOverride  = require("method-override"),
     mongoose        = require('mongoose');
 
+var options = {
+  user: process.env.OPENSHIFT_MONGODB_DB_USERNAME,
+  pass: process.env.OPENSHIFT_MONGODB_DB_PASSWORD
+}
 // Connection to DB
-mongoose.connect('mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/');
+mongoose.connect('mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/',options);
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
