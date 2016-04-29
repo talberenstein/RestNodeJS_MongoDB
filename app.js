@@ -38,6 +38,13 @@ events.route('/events/:id')
 app.use('/api', events);
 
 // Start server
-app.listen(3000, function() {
+/*app.listen(3000, function() {
   console.log("Node server running on http://localhost:3000");
+});*/
+
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3200;
+
+app.listen(port, ipaddress, function(){
+  console.log('La magia esta en el puerto ' + port);
 });
